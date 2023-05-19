@@ -23,24 +23,62 @@ const Square = ({ children, isSelected, updateBoard, index }) => {
   )
 }
 
+//Conbinaciones ganadoras
+const WINNER_COMBOS =[
+  //Horizontales
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  //Verticales
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  //Diagonales
+  [0, 4, 8],
+  [2, 4, 6]
+
+]
 function App() {
   // Cuadricula del Tablero
   const [board, setBoard] = useState(Array(9).fill(null))
 
   // Estado para los turnos
   const [turn, setTurn] = useState(TURNS.X)
+  // Estado del ganador
+  const [winner, setWinner] = useState(null) // null = No hay ganador, false = empate
+
+  //Verifica si hay gador o empate
+  const checkWinner = (boardToCheck) => {
+    //Revisa las combinaciones
+    for (const combo of WINNER_COMBOS) {
+      const [a, b, c] = combo
+      if(
+        boardToCheck[a]&&
+        boardToCheck[a] === boardToCheck[b] &&
+        boardToCheck[a] === boardToCheck[c]
+      ) {
+        return boardToCheck[a]
+      }
+    }
+    // En caso de empate
+    return null
+  }
 
   const updateBoard = (index) =>{
     // No actualizar posicion si esta ocupada
-    if(board[index])return
+    if(board[index] || winner) return
     //Atualiza el Board
     const newBoard = [...board]
     newBoard[index]= turn
     setBoard(newBoard)
-
     //Condicion para cambiar turno
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X
     setTurn(newTurn)
+    // Revisar si hay ganador
+    const newWinner = checkWinner(newBoard)
+    if(newWinner) {
+      setWinner(newWinner)
+    }
   }
 
   return (
@@ -70,6 +108,30 @@ function App() {
           {TURNS.O}
         </Square>
       </section>
+
+      {
+        winner != null && (
+          <section className="winner">
+            <div className="text">
+              <h2>
+                {
+
+                  winner === false
+                    ? 'Empate'
+                    : 'Gano:'
+                }
+              </h2>
+              <header className="win">
+                {winner && <Square>{winner}</Square>}
+              </header>
+
+              <footer>
+                <button>Empezar de nuevo</button>
+              </footer>
+            </div>
+          </section>
+        )
+      }
     </main>
   ) 
 }
