@@ -7,10 +7,16 @@ import { WinnerModal } from "./components/WinnerModal"
 // --Funcionamiento del tablero--
 function App() {
   // Cuadricula del Tablero
-  const [board, setBoard] = useState(Array(9).fill(null))
+  const [board, setBoard] = useState(() => {
+    const boardFromStorage = window.localStorage.getItem('board') 
+    if (boardFromStorage) return JSON.parse(boardFromStorage)
+    return Array(9).fill(null)})
 
   // Estado para los turnos
-  const [turn, setTurn] = useState(TURNS.X)
+  const [turn, setTurn] = useState(() => {
+    const turnFromStorage = window.localStorage.getItem('turn')
+    return turnFromStorage ?? TURNS.X
+  })
   // Estado del ganador
   const [winner, setWinner] = useState(null) // null = No hay ganador, false = empate
 
@@ -19,6 +25,9 @@ function App() {
     setBoard(Array(9).fill(null))
     setTurn(TURNS.X)
     setWinner(null)
+
+    window.localStorage.removeItem('board')
+    window.localStorage.removeItem('turn')
   }
 
   const updateBoard = (index) =>{
@@ -31,6 +40,9 @@ function App() {
     //Condicion para cambiar turno
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X
     setTurn(newTurn)
+    //Guardar partida
+    window.localStorage.setItem('board', JSON.stringify(newBoard))
+    window.localStorage.setItem('turn', newTurn)
     // Revisar si hay ganador
     const newWinner = checkWinnerFrom(newBoard)
     if(newWinner) {
