@@ -1,7 +1,7 @@
 export const TURNS = {
     X: 'X',
     O: 'O'
-}
+};
 //Conbinaciones ganadoras
 export const WINNER_COMBOS =[
     //Horizontales
@@ -16,4 +16,4 @@ export const WINNER_COMBOS =[
     [0, 4, 8],
     [2, 4, 6]
   
-]
+];

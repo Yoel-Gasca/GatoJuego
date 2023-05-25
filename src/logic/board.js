@@ -3,20 +3,20 @@ import { WINNER_COMBOS } from "../constants"
 export const checkWinnerFrom = (boardToCheck) => {
     //Revisa las combinaciones
     for (const combo of WINNER_COMBOS) {
-      const [a, b, c] = combo
+      const [a, b, c] = combo;
       if(
         boardToCheck[a]&&
         boardToCheck[a] === boardToCheck[b] &&
         boardToCheck[a] === boardToCheck[c]
       ) {
         return boardToCheck[a]
-      }
-    }
+      };
+    };
     // En caso de empate
-    return null
-}
+    return null;
+};
 
 export const checkEndGame = (newBoard) =>{
     // Verifica el empate, si no hay conbinaciones ganadoras en el tablero
-    return newBoard.every((Square) => Square != null)
-  }
+    return newBoard.every((Square) => Square != null);
+};
