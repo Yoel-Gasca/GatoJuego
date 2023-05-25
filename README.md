@@ -17,3 +17,7 @@ En caso de que algun jugador gane o tambien exista un empate aparecera esto en l
 
 ![image](https://github.com/Yoel-Gasca/GatoJuego/assets/83617933/ec097584-1905-4c15-84a2-5451ee108ad9)
 
+## Tecnologías utilizadas para este proyecto:<br/>
+- Libreria de JS utilizada: React<br>
+- Plataforma del juego: Web <br/>
+- Lenguaje de programación utilizado: JavaScript <br/> <br/>
