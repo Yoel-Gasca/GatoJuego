@@ -19,5 +19,6 @@ En caso de que algun jugador gane o tambien exista un empate aparecera esto en l
 
 ## Tecnologías utilizadas para este proyecto:<br/>
 - Libreria de JS utilizada: React<br>
+- Entorno de desarrollo: ViteJS<br/>
 - Plataforma del juego: Web <br/>
 - Lenguaje de programación utilizado: JavaScript <br/> <br/>
