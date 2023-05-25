@@ -1,6 +1,6 @@
 export const TURNS = {
-    X: 'X',
-    O: 'O'
+    X: '❌',
+    O: '⭕'
 };
 //Conbinaciones ganadoras
 export const WINNER_COMBOS =[
