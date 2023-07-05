@@ -3,7 +3,7 @@ Juego del gato desarrollado con React
 
 El juego del Gato tambien, conocido como tres en raya o tic-tac-toe es un juego de rompecabezas para dos jugadores, que se turnan para marcar con una ❌ o ⭕ los espacios de una cuadrícula de 3 × 3. El jugador que logre colocar tres marcas respectivas en una fila horizontal, vertical o diagonal gana el juego. 
 
-<h4>Click <a href="https://yoel-gasca.github.io/GatoJuego/">aquí</a> para jugar</h4>
+<h3><a href="https://yoel-gasca.github.io/GatoJuego/">Jugar al gato</a></h3>
 
 ![image](https://github.com/Yoel-Gasca/GatoJuego/assets/83617933/49937df2-8d0f-4ea5-a4a0-1930dec703a8)
 
